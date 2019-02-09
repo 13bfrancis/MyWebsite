@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSpring } from 'react-spring';
 
 import { BackgroundImage } from '../Styles/Background';
+import background from '../Images/background-image.jpg';
 import Menu from '../Components/Menu';
 import Header from '../Components/Header';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -22,11 +23,7 @@ export default ({ children }) => {
   return (
     <Router>
       <>
-        <BackgroundImage
-          src={
-            'https://images.unsplash.com/photo-1515524738708-327f6b0037a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60'
-          }
-        />
+        <BackgroundImage src={background} />
         <Header toggler={toggler} />
         {toggleMenu && (
           <Menu

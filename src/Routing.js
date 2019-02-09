@@ -1,15 +1,17 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
-
-const Testing = () => <h1>Hello World</h1>;
+import Contact from './Pages/Contact';
+import About from './Pages/About';
+import Resume from './Pages/Resume';
+import Projects from './Pages/Projects';
 
 export default () => (
   <Switch>
-    <Route path="/projects" component={Testing} />
-    <Route path="/resume" component={HomePage} />
-    <Route path="/contact" component={HomePage} />
-    <Route path="/about" component={HomePage} />
-    <Route component={HomePage} />
+    <Route path="/projects" component={Projects} />
+    <Route path="/resume" component={Resume} />
+    <Route path="/contact" component={Contact} />
+    <Route path="/about" component={About} />
+    <Route exact path="/" component={HomePage} />
   </Switch>
 );
