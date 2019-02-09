@@ -10,6 +10,7 @@ const Quote = styled.p`
   font-family: 'Rubik Mono One', sans-serif;
   text-indent: 5%;
   width: 60%;
+  text-shadow: 2px 2px orange;
 `;
 
 export default ({ heading, quote }) => {
