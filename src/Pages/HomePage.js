@@ -26,8 +26,11 @@ export default ({ heading, quote }) => {
         flexGrow: '1'
       }}
     >
-      <Heading>{heading}</Heading>
-      <Quote>{quote}</Quote>
+      <Heading>Devlopment is Beautiful</Heading>
+      <Quote>
+        It is because of the ability to express myself and to be creative that I
+        like software development so much
+      </Quote>
     </div>
   );
 };

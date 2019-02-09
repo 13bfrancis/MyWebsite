@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
 const MenuButton = styled.button`
   outline: none;
@@ -21,7 +22,7 @@ const Menu = styled(animated.div)`
   z-index: 10;
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled(Link)`
   width: 100%;
   height: 25%;
   display: flex;
@@ -33,6 +34,8 @@ const MenuItem = styled.div`
   font-weight: normal;
   line-height: normal;
   font-size: 35px;
+  text-decoration: none;
+  color: inherit;
   &:last-child {
     border: none;
   }

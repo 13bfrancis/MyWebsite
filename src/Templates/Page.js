@@ -11,6 +11,10 @@ import {
   Menu,
   BackgroundBlur
 } from '../Styles/MenuStyles';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from '../Pages/HomePage';
+
+const Testing = () => <h1>Hello</h1>;
 
 export default ({ children }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -25,41 +29,55 @@ export default ({ children }) => {
     setToggleMenu(!toggleMenu);
   };
   return (
-    <>
-      <BackgroundImage
-        src={
-          'https://images.unsplash.com/photo-1515524738708-327f6b0037a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60'
-        }
-      />
-      <Header>
-        <HeaderTitle>
-          <img
-            src={logo}
-            style={{ width: '35%', height: '100%' }}
-            alt="BJF Development"
-          />
-        </HeaderTitle>
-        <MenuButton onClick={toggler}>
-          <MenuIcon
-            style={{
-              width: '70px',
-              height: '70px'
-            }}
-          />
-        </MenuButton>
-      </Header>
-      {children}
-      {toggleMenu && (
-        <>
-          <Menu style={animatedMenu}>
-            <MenuItem>Projects</MenuItem>
-            <MenuItem>Resume</MenuItem>
-            <MenuItem>About Me</MenuItem>
-            <MenuItem>Contact</MenuItem>
-          </Menu>
-          <BackgroundBlur style={smoothBlur} onClick={toggler} />
-        </>
-      )}
-    </>
+    <Router>
+      <>
+        <BackgroundImage
+          src={
+            'https://images.unsplash.com/photo-1515524738708-327f6b0037a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60'
+          }
+        />
+        <Header>
+          <HeaderTitle>
+            <img
+              src={logo}
+              style={{ width: '35%', height: '100%' }}
+              alt="BJF Development"
+            />
+          </HeaderTitle>
+          <MenuButton onClick={toggler}>
+            <MenuIcon
+              style={{
+                width: '70px',
+                height: '70px'
+              }}
+            />
+          </MenuButton>
+        </Header>
+        {toggleMenu && (
+          <>
+            <Menu style={animatedMenu}>
+              <MenuItem to="/projects" onClick={toggler}>
+                Projects
+              </MenuItem>
+              <MenuItem to="/resume" onClick={toggler}>
+                Resume
+              </MenuItem>
+              <MenuItem to="/about" onClick={toggler}>
+                About Me
+              </MenuItem>
+              <MenuItem to="/contact" onClick={toggler}>
+                Contact
+              </MenuItem>
+            </Menu>
+
+            <BackgroundBlur style={smoothBlur} onClick={toggler} />
+          </>
+        )}
+        <Switch>
+          <Route path="/projects" component={Testing} />
+          <Route component={HomePage} />
+        </Switch>
+      </>
+    </Router>
   );
 };
